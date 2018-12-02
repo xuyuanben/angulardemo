@@ -1,3 +1,48 @@
-<p>
-  home works!
-</p>
+<nz-layout class="home-wrapper">
+  <nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed" [nzBreakpoint]="'lg'">
+    <div class="logo">
+      <img src="../../assets/logo.jpg" alt="">
+    </div>
+    <ul nz-menu [nzTheme]="'dark'" [nzMode]="'inline'" [nzInlineCollapsed]="isCollapsed">
+      <li nz-submenu>
+        <span title><i nz-icon type="user" theme="outline"></i> 员工管理</span>
+        <ul>
+          <li nz-menu-item routerLink="/home/employee">员工列表</li>
+          <li nz-menu-item routerLink="/home/employee/add">员工添加</li>
+        </ul>
+      </li>
+      <li nz-submenu>
+        <span title><i nz-icon type="smile" theme="outline"></i> 角色管理</span>
+        <ul>
+          <li nz-menu-item>Option 1</li>
+          <li nz-menu-item>Option 2</li>
+        </ul>
+      </li>
+      <li nz-submenu>
+        <span title><i nz-icon type="lock" theme="outline"></i> 权限管理</span>
+        <ul>
+          <li nz-menu-item>Option 1</li>
+          <li nz-menu-item>Option 2</li>
+        </ul>
+      </li>
+    </ul>
+  </nz-sider>
+  <nz-layout>
+    <nz-header style="background: #fff; padding:0;">
+      <div nz-row nzType="flex" nzJustify="end">
+        <div nz-col nzSpan="4">
+          <nz-avatar nzIcon="user" nzSrc="//zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"></nz-avatar>
+         
+          <a href="#" nz-popconfirm nzTitle="确定退出登陆吗?" (nzOnConfirm)="logout()"  class="logout" ><i nz-icon type="logout" theme="outline"></i>&nbsp;&nbsp;退出</a>
+        </div>
+      </div>
+
+    </nz-header>
+    <nz-content style="margin:24px 16px 0;">
+      <div style="padding:24px; background: #fff; min-height: 360px;">
+        <router-outlet></router-outlet>
+      </div>
+    </nz-content>
+    <nz-footer style="text-align: center;">Angular Demo ©2017 Implement By Angular</nz-footer>
+  </nz-layout>
+</nz-layout>

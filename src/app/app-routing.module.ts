@@ -8,12 +8,19 @@ const routes: Routes = [
   {
     path: 'home',
     component:HomeComponent,
-    canActivate:[AuthGuard]
+    canActivate:[AuthGuard],
+    children:[
+      {
+        path:'employee',
+        loadChildren:'./employees/employees.module#EmployeesModule'
+      }
+    ]
   },
   {
     path: 'login',
     component:LoginComponent
-  }
+  },
+  
   
 ];
 
